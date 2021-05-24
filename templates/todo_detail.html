@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %} 
+<div class="col-4 offset-4">
+    <a href="{% url 'todolist' %}" class="my-2 btn btn-secondary">Go to Homepage </a>
+    <div class="card mt-3">
+        <div class="card-header">
+            <a href="{% url 'todo_detail' todo.id %}"><h4>{{ todo.name }}</h4></a>
+        </div>
+        <div class="card-body">
+            <p>{{ todo.description }}</p>
+            <p class="btn btn-outline-success">Due: {{ todo.due_date }} </p>
+        </div>
+        <div class="card-footer text-center">
+            <a class="btn btn-success mx-2" href="{% url 'update' todo.id %}">
+                Update this todo
+            </a>
+            <a class="btn btn-danger mx-2" href="{% url 'delete' todo.id %}">
+                Delete this Todo
+            </a>
+        </div> 
+    </div>
+</div>
+    
+{% endblock %}
